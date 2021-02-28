@@ -1,0 +1,22 @@
+{
+    "Version": "1",
+    "Sections": [
+        {
+            "Name": "Core",
+            "Description": "Main settings",
+            "IsAdvanced": false,
+            "Keys": [
+                {
+                    "Min": 0.0,
+                    "Max": 5.0,
+                    "Value": 1.0,
+                    "Name": "ScaleFactor",
+                    "Description": "How much speed contributes to weapon animation time. Higher means more, 0 means none at all",
+                    "$version": "v1",
+                    "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.SliderFloatKey"
+                }
+            ],
+            "$version": "v1"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "ModTitle": "Kab's Scalable Speed",
+    "ModVersion": "0.1",
+    "ModAuthor": "Kab the Bird Ranger",
+    "ContactInfo": "kaboissonneault@gmail.com",
+    "DFUnity_Version": "0.11.1",
+    "ModDescription": "Changes the GetMeleeWeaponAnimTime formula to scale consistently with Speed, even past 100",
+    "GUID": "fa015f30-7113-4efb-ab6e-9c414cc702bf",
+    "Files": [
+        "Assets/Game/Mods/WeaponAnimTime/Scripts/WeaponAnimTimeMod.cs",
+        "Assets/Game/Mods/WeaponAnimTime/WeaponAnimTime.dfmod.json",
+        "Assets/Game/Mods/WeaponAnimTime/modsettings.json"
+    ]
+}
