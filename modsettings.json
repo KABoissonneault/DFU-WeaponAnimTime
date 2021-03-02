@@ -1,5 +1,5 @@
 {
-    "Version": "1",
+    "Version": "2",
     "Sections": [
         {
             "Name": "Core",
@@ -14,6 +14,15 @@
                     "Description": "How much speed contributes to weapon animation time. Higher means more, 0 means none at all",
                     "$version": "v1",
                     "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.SliderFloatKey"
+                },
+                {
+                    "Min": 0,
+                    "Max": 500,
+                    "Value": 195,
+                    "Name": "BaseValue",
+                    "Description": "The base \"frame time\" for when Speed is at 50. Divide by 980 to get time per tick in seconds",
+                    "$version": "v1",
+                    "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.SliderIntKey"
                 }
             ],
             "$version": "v1"

@@ -1,7 +1,7 @@
 Name: Kab's Scalable Speed
 Author: Kab the Bird Ranger
-Released On: Still in alpha
-Version: 0.1
+Released On: Still in alpha, send feedback!
+Version: 0.2
 
 BACKGROUND:
 The classic formula for determining how long an attack animation tick will take is determined as such
@@ -22,9 +22,11 @@ This mod overrides the "GetMeleeWeaponAnimTime" formula with two objectives
 
 With this in mind, I came up with the following formula:
 
-195 * pow(1 - k, PlayerSpeed - 50) / 980
+b * pow(1 - k, PlayerSpeed - 50) / 980
 
 What is "k"? It's the adjustable "scale factor" that comes with the mod's settings. It's set at 1 by default. For any value of "k", and for any value of PlayerSpeed, (PlayerSpeed + 1) points of speed will make the weapon animation k% as short as PlayerSpeed. The formula works like compound interest on a loan - 5 points of speed doesn't give you 5*k% increase, but (1 - pow(1 - k, 5))% increase.
+
+"b" is the base frame time per tick, used at 50 Speed. Lower means faster all across the board. The default value is 195, which matches the classic speed.
 
 The base numbers are set so that at 50 speed, you get the exact same weapon animation time as classic, no matter the scale factor used. With the default scale factor of 1, low speed values are slightly better than classic, and 100 speed is about 2.6 times slower than classic. This may seem like much, but I find the classic animation time way too fast, personally. Higher scale factors will make high speeds better, but low speed values much worse.
 
@@ -33,10 +35,13 @@ Note that since speed scales infinitely now, you're free to remove the speed cap
 User feedback welcome! Find me on the unofficial DFU Discord server @kaboissonneault
 
 VERSION HISTORY:
-2021-02-28:	0.1 - Test version
+2021-03-01: 0.2 - Added "base value" setting, and two setting presets (No Impact, High Impact)
+2021-02-28: 0.1 - Test version
 
 COMPATIBILITY:
-Not compatible with mods that change the "GetMeleeWeaponAnimTime". Watch for other combat overhaul mods.
+Not compatible with mods that change the "GetMeleeWeaponAnimTime". Watch for other combat overhaul mods, such as "Roleplay & Realism"'s "Weapon Speed" setting (can be turned off individually), "Roleplay & Realism: Items"'s "Weapon Balance" setting, or Physical Combat Overhaul. Loading this mod last will override these mods.
+
+Personally, I like R&R:I's Weapon Balance, so I keep it on but load Scalable Speed just after.
 
 INSTALLATION:
 Copy the "kab's scalable speed.dfmod" into your DaggerfallUnity_Data\StreamingAssets\Mods folder

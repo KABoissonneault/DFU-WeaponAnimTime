@@ -12,6 +12,7 @@ public class WeaponAnimTimeMod : MonoBehaviour
     static Mod mod;
 
     float ScaleFactor;
+    float BaseValue;
 
     [Invoke(DaggerfallWorkshop.Game.StateManager.StateTypes.Start, 0)]
     public static void Init(InitParams initParams)
@@ -26,6 +27,7 @@ public class WeaponAnimTimeMod : MonoBehaviour
 
         ModSettings settings = mod.GetSettings();
         ScaleFactor = settings.GetFloat("Core", "ScaleFactor") / 100f;
+        BaseValue = settings.GetInt("Core", "BaseValue");
         FormulaHelper.RegisterOverride<Func<PlayerEntity, WeaponTypes, ItemHands, float>>(mod, "GetMeleeWeaponAnimTime", GetMeleeWeaponAnimTime);
 
         Debug.Log("Finished mod init: Kab's Scalable Speed");
@@ -33,7 +35,7 @@ public class WeaponAnimTimeMod : MonoBehaviour
 
     float GetMeleeWeaponAnimTime(PlayerEntity player, WeaponTypes ignore, ItemHands ignore2)
     {
-        float speed = 195f * Mathf.Pow(1 - ScaleFactor, player.Stats.LiveSpeed - 50);
+        float speed = BaseValue * Mathf.Pow(1 - ScaleFactor, player.Stats.LiveSpeed - 50);
         return speed / FormulaHelper.classicFrameUpdate;
     }
 }

@@ -1,6 +1,6 @@
 {
     "ModTitle": "Kab's Scalable Speed",
-    "ModVersion": "0.1",
+    "ModVersion": "0.2",
     "ModAuthor": "Kab the Bird Ranger",
     "ContactInfo": "kaboissonneault@gmail.com",
     "DFUnity_Version": "0.11.1",
@@ -9,6 +9,7 @@
     "Files": [
         "Assets/Game/Mods/WeaponAnimTime/Scripts/WeaponAnimTimeMod.cs",
         "Assets/Game/Mods/WeaponAnimTime/WeaponAnimTime.dfmod.json",
-        "Assets/Game/Mods/WeaponAnimTime/modsettings.json"
+        "Assets/Game/Mods/WeaponAnimTime/modsettings.json",
+        "Assets/Game/Mods/WeaponAnimTime/modpresets.json"
     ]
 }
