@@ -1,2 +1,55 @@
-# DFU-WeaponAnimTime
+# Kab's Scalable Speed
 Daggerfall Unity mod to improve the weapon anim time formula
+
+Version: 0.2
+
+## COMPATIBILITY
+
+Known conflicts:
+- Roleplay & Realism, Weapon Speed setting
+- Roleplay & Realism: Items, Weapon Balance setting
+
+The mods can be used together without issue, but will write over each other's attack speed formula. Load this mod after these mods if you want the changes to take effect
+
+## BACKGROUND:
+The classic formula for determining how long an attack animation tick will take is determined as such
+
+`3 * (115 - PlayerSpeed) / 980`
+
+At 50 speed, this results in about 0.2 seconds per tick, which gives about a second per attack for a 5 tick attack.
+
+What's wrong with that? Well, first, with this approach, the benefits of speed are more impactful the more speed you have. Going from 99 to 100 speed is much better than going from 30 to 31 speed. This makes speed an attribute worth stacking to the max no matter what. Secondly, if one uses mods to increase the attribute caps, it doesn't take much to get ridiculous results with speed. At 115 and above, your attacks always last one frame. Get a good auto-click macro and unlock your fps to get hundreds of attacks per second. 
+
+Many players may not find this worth fixing, but for those like me who do, I offer this alternative formula.
+
+## DESCRIPTION
+This mod overrides the "GetMeleeWeaponAnimTime" formula with two objectives
+
+1) Speed gives consistent benefits: going from 1 to 2 should be as beneficial as going from 99 to 100.
+2) Speed can scale up to infinite values. This is more relevant with other mods that remove attribute caps (ex: LevelUp Adjuster)
+
+With this in mind, I came up with the following formula:
+
+b * pow(1 - k, PlayerSpeed - 50) / 980
+
+What is "k"? It's the adjustable "scale factor" that comes with the mod's settings. It's set at 1 by default. For any value of "k", and for any value of PlayerSpeed, (PlayerSpeed + 1) points of speed will make the weapon animation k% as short as PlayerSpeed. The formula works like compound interest on a loan - 5 points of speed doesn't give you 5*k% increase, but (1 - pow(1 - k, 5))% increase.
+
+"b" is the base frame time per tick, used at 50 Speed. Lower means faster all across the board. The default value is 195, which matches the classic speed.
+
+The base numbers are set so that at 50 speed, you get the exact same weapon animation time as classic, no matter the scale factor used. With the default scale factor of 1, low speed values are slightly better than classic, and 100 speed is about 2.6 times slower than classic. This may seem like much, but I find the classic animation time way too fast, personally. Higher scale factors will make high speeds better, but low speed values much worse.
+
+Note that since speed scales infinitely now, you're free to remove the speed cap and use a good Feet of Nigoro spell to go crazy.
+
+User feedback welcome! Find me on the unofficial DFU Discord server @kaboissonneault
+
+## VERSION HISTORY
+- 2021-03-01: 0.2 - Added "base value" setting, and two setting presets (No Impact, High Impact)
+- 2021-02-28: 0.1 - Test version
+
+## INSTALLATION
+Copy the "kab's scalable speed.dfmod" into your DaggerfallUnity_Data\StreamingAssets\Mods folder
+
+Make sure the mod is enabled and "Mod system" is enabled in the starting menu under "Advanced -> Enhancements"
+
+## UNINSTALL
+Remove "kab's scalable speed.dfmod" from the "StreamingAssets/Mods" folder.
