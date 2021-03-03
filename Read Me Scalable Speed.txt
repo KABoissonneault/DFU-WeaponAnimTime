@@ -3,6 +3,14 @@ Author: Kab the Bird Ranger
 Released On: Still in alpha, send feedback!
 Version: 0.2
 
+COMPATIBILITY:
+
+Known conflicts:
+- Roleplay & Realism, Weapon Speed setting
+- Roleplay & Realism: Items, Weapon Balance setting
+
+The mods can be used together without issue, but will write over each other's attack speed formula. Load this mod after these mods if you want the changes to take effect
+
 BACKGROUND:
 The classic formula for determining how long an attack animation tick will take is determined as such
 
@@ -37,11 +45,6 @@ User feedback welcome! Find me on the unofficial DFU Discord server @kaboissonne
 VERSION HISTORY:
 2021-03-01: 0.2 - Added "base value" setting, and two setting presets (No Impact, High Impact)
 2021-02-28: 0.1 - Test version
-
-COMPATIBILITY:
-Not compatible with mods that change the "GetMeleeWeaponAnimTime". Watch for other combat overhaul mods, such as "Roleplay & Realism"'s "Weapon Speed" setting (can be turned off individually), "Roleplay & Realism: Items"'s "Weapon Balance" setting, or Physical Combat Overhaul. Loading this mod last will override these mods.
-
-Personally, I like R&R:I's Weapon Balance, so I keep it on but load Scalable Speed just after.
 
 INSTALLATION:
 Copy the "kab's scalable speed.dfmod" into your DaggerfallUnity_Data\StreamingAssets\Mods folder
