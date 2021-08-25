@@ -1,5 +1,5 @@
 {
-    "Version": "2",
+    "Version": "3",
     "Sections": [
         {
             "Name": "Core",
@@ -23,6 +23,21 @@
                     "Description": "The base \"frame time\" for when Speed is at 50. Divide by 980 to get time per tick in seconds",
                     "$version": "v1",
                     "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.SliderIntKey"
+                }
+            ],
+            "$version": "v1"
+        },
+        {
+            "Name": "Compatibility",
+            "Description": "Compatibility with other mods",
+            "IsAdvanced": false,
+            "Keys": [
+                {
+                    "Value": true,
+                    "Name": "RoleplayRealismItems-WeaponBalance",
+                    "Description": "Compatibility with the \"Roleplay and Realism: Items\" Weapon Balance setting",
+                    "$version": "v1",
+                    "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.ToggleKey"
                 }
             ],
             "$version": "v1"
