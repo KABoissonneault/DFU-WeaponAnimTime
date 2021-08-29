@@ -3,7 +3,7 @@
         "Title": "No Impact",
         "Author": "Kab",
         "Description": "Speed has no impact on attack speed. The base value is always used",
-        "SettingsVersion": "2",
+        "SettingsVersion": "4",
         "Values": {
             "Core": {
                 "ScaleFactor": "0"
@@ -15,7 +15,7 @@
         "Title": "High Impact",
         "Author": "Kab",
         "Description": "Settings with faster speeds overall than default. More Speed contribution but also a faster base overall.",
-        "SettingsVersion": "2",
+        "SettingsVersion": "4",
         "Values": {
             "Core": {
                 "ScaleFactor": "2",

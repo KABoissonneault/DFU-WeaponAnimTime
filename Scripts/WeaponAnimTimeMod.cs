@@ -12,38 +12,45 @@ using DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings;
 public class WeaponAnimTimeMod : MonoBehaviour
 {
     static Mod mod;
+    static WeaponAnimTimeMod instance;
 
     float ScaleFactor;
     float BaseValue;
     bool RoleplayRealismItemsWeaponBalance;
 
-    [Invoke(DaggerfallWorkshop.Game.StateManager.StateTypes.Start, 0)]
+    [Invoke(StateManager.StateTypes.Start, 0)]
     public static void Init(InitParams initParams)
     {
         mod = initParams.Mod;
-        new GameObject(mod.Title).AddComponent<WeaponAnimTimeMod>();
+        instance = new GameObject(mod.Title).AddComponent<WeaponAnimTimeMod>();
+        mod.LoadSettingsCallback = LoadSettings;
+
+        mod.IsReady = true;
     }
 
-    void Awake()
+    void Start()
     {
         Debug.Log("Begin mod init: Kab's Scalable Speed");
-        
-        ModSettings settings = mod.GetSettings();
-        ScaleFactor = settings.GetFloat("Core", "ScaleFactor") / 100f;
-        BaseValue = settings.GetInt("Core", "BaseValue");
-        RoleplayRealismItemsWeaponBalance = RoleplayRealismItemsWeaponBalanceCompatibility(settings);
+
+        mod.LoadSettings();
+
         if (RoleplayRealismItemsWeaponBalance)
             Debug.Log("Using Roleplay and Realism:Items's Weapon Balance");
+
         FormulaHelper.RegisterOverride<Func<PlayerEntity, WeaponTypes, ItemHands, float>>(mod, "GetMeleeWeaponAnimTime", GetMeleeWeaponAnimTime);
 
         Debug.Log("Finished mod init: Kab's Scalable Speed");
     }
 
-    static bool RoleplayRealismItemsWeaponBalanceCompatibility(ModSettings modSettings)
+    static void LoadSettings(ModSettings settings, ModSettingsChange change)
     {
-        if (!modSettings.GetBool("Compatibility", "RoleplayRealismItems-WeaponBalance"))
-            return false;
+        instance.ScaleFactor = settings.GetFloat("Core", "ScaleFactor") / 100f;
+        instance.BaseValue = settings.GetInt("Core", "BaseValue");
+        instance.RoleplayRealismItemsWeaponBalance = RoleplayRealismItemsWeaponBalanceCompatibility();
+    }
 
+    static bool RoleplayRealismItemsWeaponBalanceCompatibility()
+    {
         Mod roleplayRealismItems = ModManager.Instance.GetMod("RoleplayRealism-Items");
         if (roleplayRealismItems == null)
             return false;

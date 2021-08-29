@@ -1,17 +1,9 @@
 Name: Kab's Scalable Speed
-Author: Kab the Bird Ranger
-Released On: Still in alpha, send feedback!
-Version: 0.3
+Author: kaboissonneault
+Released On: August 26th 2021
+Version: 1.0
 
 Makes the weapon animation scale more consistently with speed.
-
-COMPATIBILITY:
-
-Known conflicts:
-- Roleplay & Realism, Weapon Speed setting
-- Roleplay & Realism: Items, Weapon Balance setting
-
-*Always load this mod after these*. If you have R&R:I's Weapon Balance enabled, its player speed adjustments relative to strength and weapon weight will still be applied.
 
 BACKGROUND:
 The classic formula for determining how long an attack animation tick will take is determined as such
@@ -45,6 +37,7 @@ Note that since speed scales infinitely now, you're free to remove the speed cap
 User feedback welcome! Find me on the unofficial DFU Discord server @kaboissonneault
 
 VERSION HISTORY:
+2021-08-26: 1.0 - Full release. Now with settings you can change during gameplay.
 2021-03-10: 0.3 - Added Roleplay and Realism: Items compatibility
 2021-03-01: 0.2 - Added "base value" setting, and two setting presets (No Impact, High Impact)
 2021-02-28: 0.1 - Test version
